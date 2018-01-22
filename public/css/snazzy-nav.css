@@ -1,0 +1,88 @@
+nav .nav-handle-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  min-height: 150px;
+  background: #0099ff;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: none;
+}
+
+nav .nav-handle-container .nav-handle {
+  height: 5px;
+  width: 50px;
+  background: white;
+  position: absolute;
+  display: block;
+  left: -webkit-calc(100% - 100px);
+  left: calc(100% - 100px);
+  top: 75px;
+}
+
+nav .nav-handle-container .nav-handle:before, nav .nav-handle-container .nav-handle:after {
+  content: "";
+  height: 5px;
+  width: 50px;
+  background: white;
+  position: absolute;
+  display: block;
+}
+
+nav .nav-handle-container .nav-handle:before { top: -20px; }
+
+nav .nav-handle-container .nav-handle:after { bottom: -20px; }
+
+nav ul {
+  list-style: none;
+  background-color: #0099ff;
+  overflow: hidden;
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  -webkit-transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.4s ease-in-out;
+      transition: background .3s ease;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 10px;
+  transition: background .3s ease;
+border-bottom:3px solid #0099ff;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight:bold;
+}
+
+nav ul li:hover { 
+background: #fff; 
+color:#0099ff;
+border-bottom:3px solid #0099ff;
+}
+nav ul:hover li { 
+
+}
+ @media screen and (max-width: 760px) {
+
+nav .showing { max-height: 30.5em; }
+
+nav ul { max-height: 0px; }
+
+nav ul li {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 35px;
+  text-align: left;
+  font-size: 2.6em;
+}
+
+nav .nav-handle-container { display: block; }
+
+}

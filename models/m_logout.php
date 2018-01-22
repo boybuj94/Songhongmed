@@ -1,0 +1,13 @@
+<?php
+session_start();
+ob_start();
+?>
+<?php
+	unset($_SESSION['idus']);
+	unset($_SESSION['passus']);
+	unset($_SESSION['sdt']);
+	unset($_SESSION['diachi']);
+	unset($_SESSION['email']);
+	unset($_SESSION['tenkh']);
+	header("location:index.php");
+?>

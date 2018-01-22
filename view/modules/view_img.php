@@ -1,0 +1,128 @@
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+	    <!-- Javascripts -->
+    <script language="javascript" type="text/javascript" src="js/jquery.js"></script>    
+    <script language="javascript" type="text/javascript" src="js/popup2.3.js"></script> 
+
+    <script language="javascript" type="text/javascript">
+    		$(document).ready(function(){
+    			$(".popup").popup({
+					transparentLayer : true,
+					gallery : true,
+					galleryTitle : "Gallery1 Title",
+					imgaeDesc : true,
+					galleryCounter : true,
+					imageDesc : true,
+					autoSize : false,
+					boxHeight : 600,
+					boxWidth : 500,
+					shadowLength : 0,
+					transition : 0,
+					galleryCircular: false,
+					onOpen : function() {
+						console.log("opened the box .popup");
+					},
+					onClose : function() {
+						console.log("closed the box .popup");
+					}
+				});
+				$(".popup1").popup({
+					transparentLayer : true,
+					gallery : true,
+					galleryTitle : "Gallery2 Title",
+					popupID : "fixedGallery",
+					imageDesc : true,
+					fixedTop : 50,
+					fixedLeft : false,
+					galleryCircular: false,
+					onOpen : function() {
+						console.log("opened the box .popup1");
+					},
+					onClose : function() {
+						console.log("closed the box .popup1");
+					}
+				});
+				$(".popup2").popup({
+					transparentLayer : true,
+					gallery : false,
+					popupID : "popupBox2",
+					ajax : true,
+					overflow: "hidden",
+					shadowLength : 10,
+					hasCloseButton : false,
+					onOpen : function() {
+						console.log("opened the box .popup2");
+					},
+					onClose : function() {
+						console.log("closed the box .popup2");
+					}
+				});
+				$(".popup3").popup({
+					transparentLayer : true,
+					gallery : false,
+					popupID : "popupBox3",
+					contentClass : "popupBox3",
+					onOpen : function() {
+						console.log("opened the box .popup3");
+					},
+					onClose : function() {
+						console.log("closed the box .popup3");
+					}
+				});
+
+			});
+			
+
+    </script>
+
+
+      <div id="wrap" style="background:#eee;padding:20px;min-height:100%">
+
+      	   <h2>Fixed popup box height for images</h2>
+		   <div>
+      	   		<img src="img/1thumb.jpg" width="60" height="80" alt="" name="img/1.jpg" class="popup" title="gallery1" longdesc="<div style='padding:10px'><p>this is an image of a fluffy little bunny</p><p>for more info go to <a href=''>www.fuffybunnies.com</a></p></div>" />
+      	   		<img src="img/2thumb.jpg" width="60" height="80" alt="" name="img/2.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/3thumb.jpg" width="60" height="80" alt="" name="img/3.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/4thumb.jpg" width="60" height="80" alt="" name="img/4.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/5thumb.jpg" width="60" height="80" alt="" name="img/5.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/6thumb.jpg" width="60" height="80" alt="" name="img/6.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/7thumb.jpg" width="60" height="80" alt="" name="img/7.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/8thumb.jpg" width="60" height="80" alt="" name="img/8.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/9thumb.jpg" width="60" height="80" alt="" name="img/9.jpg" class="popup" title="gallery1" longdesc="<p>this is an image</p>" />
+   		   </div>
+   		   <h2>Auto Sized popup box height for images</h2>
+   		   <div>
+      	   		<img src="img/1thumb.jpg" width="60" height="80" alt="" name="img/1.jpg" class="popup1" title="gallery3" longdesc="<div style='padding:10px'><p>this is an image of a fluffy little bunny</p><p>for more info go to <a href=''>www.fuffybunnies.com</a></p></div>" />
+      	   		<img src="img/2thumb.jpg" width="60" height="80" alt="" name="img/2.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/3thumb.jpg" width="60" height="80" alt="" name="img/3.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/4thumb.jpg" width="60" height="80" alt="" name="img/4.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/5thumb.jpg" width="60" height="80" alt="" name="img/5.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/6thumb.jpg" width="60" height="80" alt="" name="img/6.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/7thumb.jpg" width="60" height="80" alt="" name="img/7.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/8thumb.jpg" width="60" height="80" alt="" name="img/8.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+      	   		<img src="img/9thumb.jpg" width="60" height="80" alt="" name="img/9.jpg" class="popup1" title="gallery3" longdesc="<p>this is an image</p>" />
+   		   </div>
+
+		   <div class="popupBtns">
+      	   		<input type="button" value="ajaxy content" class="popup2" name="ajax.html" title="Ajax Content" />
+      	   		<input type="button" value="DOM element content" class="popup3" name=".popup3Content" title="dom content" />
+      	   </div>
+      	   
+      	   <div class="popupContentWrapper" style="display:none">
+      	   		<div class="popup3Content">
+      	   			<h2>Content for popup 3</h2>
+      	   			<p>lorem ipsum....</p>
+      	   		</div>
+      	   </div>
+      	   
+      	   <div class="keydiv" style="font-size:16px;text-align:left">
+      	   		<p><strong>KeyCommands</strong></p>
+      	   		<ul>
+      	   			<li><strong>Close popup:</strong> esc</li>
+      	   			<li><strong>gallery next:</strong> right arrow</li>
+      	   			<li><strong>gallery previous:</strong> left arrow</li>
+   	   			</ul>
+		   </div>
+		   
+
+
+      </div>  <!-- end of wrap div -->

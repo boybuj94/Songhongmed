@@ -1,0 +1,43 @@
+RewriteEngine on
+RewriteRule "index.html" "index.php"
+
+RewriteRule "dich-vu.html" "index.php?manage=News"
+RewriteRule "^dich-vu/chi-tiet-dich-vu/(.*)-(.*).html$" "index.php?manage=News&v=vde&tieude=$1&id=$2"
+RewriteRule "dich-vu/hoat-dong.html" "index.php?manage=News&v=vac"
+RewriteRule "dich-vu/training.html" "index.php?manage=News&v=vtr"
+RewriteRule "dich-vu/huong-dan-su-dung.html" "index.php?manage=News&v=vgu"
+RewriteRule "dich-vu/cau-hoi-thuong-gap.html" "index.php?manage=News&v=qa"
+
+RewriteRule "^download/(.*)-(.*).html$" "index.php?manage=Support&item=$1&id=$2"
+RewriteRule "download.html" "index.php?manage=Support"
+
+RewriteRule "contact.html" "index.php?manage=Contact"
+
+RewriteRule "products/san-pham.html" "index.php?manage=Product&v=vpr"
+RewriteRule "^products/san-pham/(.*)$" "index.php?manage=Product&v=vpr&page=$1
+RewriteRule "^products/nhom-san-pham/(.*)-(.*).html$" "index.php?manage=Product&v=vgr&nhom=$1&id=$2"
+
+RewriteRule "^dich-vu/chi-tiet-dich-vu/(.*)-(.*).html$" "index.php?manage=News&v=vde&tieude=$1&id=$2"
+
+
+
+
+RewriteRule "l/en" "index.php?l=en"
+
+RewriteRule "en/service.html" "index.php?l=en&manage=News"
+RewriteRule "^en/service/service-details/(.*)-(.*).html$" "index.php?l=en&manage=News&v=vde&tieude=$1&id=$2"
+RewriteRule "en/service/activities.html" "index.php?l=en&manage=News&v=vac"
+RewriteRule "en/service/training.html" "index.php?l=en&manage=News&v=vtr"
+RewriteRule "en/service/use-guide.html" "index.php?l=en&manage=News&v=vgu"
+RewriteRule "en/service/frequently-asked-questions.html" "index.php?l=en&manage=News&v=qa"
+
+RewriteRule "^en/download/(.*)-(.*).html$" "index.php?l=en&manage=Support&item=$1&id=$2"
+RewriteRule "en/download.html" "index.php?l=en&manage=Support"
+
+RewriteRule "en/contact.html" "index.php?l=en&manage=Contact"
+
+RewriteRule "en/product/products.html" "index.php?l=en&manage=Product&v=vpr"
+RewriteRule "^en/products/products/(.*)$" "index.php?l=en&manage=Product&v=vpr&page=$1
+RewriteRule "^en/products/product-groups/(.*)-(.*).html$" "index.php?l=en&manage=Product&v=vgr&nhom=$1&id=$2"
+
+

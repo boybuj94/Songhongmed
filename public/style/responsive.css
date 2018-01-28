@@ -170,7 +170,7 @@ ul li {
 	display: inline-block;
 }
 .menu ul{
-	width: 70%;
+	width: 100%;
 	margin: auto;
 }
 .menu ul li {
@@ -181,8 +181,8 @@ ul li {
 }
 .menu ul li a{
 	padding: 15px;
-	margin-left: 10px;
-	margin-right: 10px;
+	/*margin-left: 10px;
+	margin-right: 10px;*/
 	transition: background .3s ease;
 	font-weight: bold;
 	color: #fff;
@@ -1066,9 +1066,9 @@ ul.tabs li.current{
 	width:25px;
 	margin-top:-30px;
 	}
-.menu ul {
+/*.menu ul {
     margin-left: 10%;
-}
+}*/
 		/* -------------End top--------------------*/
 		
 		/* -------------Slide--------------------*/
@@ -1081,7 +1081,12 @@ ul.tabs li.current{
 	height: 50px;
 	background-color: #0099ff;
 }
-
+.menu ul li a {
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-bottom: 15px;
+    padding-right: 5px;
+}
 		/* -------------End Slide--------------------*/
 		
 		/* -------------Content--------------------*/

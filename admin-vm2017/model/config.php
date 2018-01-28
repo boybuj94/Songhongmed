@@ -2,7 +2,7 @@
 	$host ="localhost";
 	$user="root";
 	$pass="";
-	$db="anhngoc";
+	$db="vietmy";
 	// kết nối đến csdl
 	$con = mysqli_connect($host,$user,$pass,$db);
 	mysqli_set_charset($con,"utf8");

@@ -24,7 +24,7 @@
 			  $str = str_replace(" ", "-", str_replace("&*#39;","",$str));
 			  $str = str_replace("/", "-",$str);
 			  $str = str_replace('"', "",$str);
-
+			  $structure = "./public/img/".$str;
 			if($_FILES['img']['name'] != NULL){ // Đã chọn img
 				$img = $date.$_FILES['img']['name'];
 				$name = str_replace(' ','-',$img);
@@ -46,7 +46,14 @@
 								echo "alert('Thêm thành công menu!');";
 								echo "window.location.href='../index.php?ql=nsp&ac=v';";
 								echo "exit();";
-								echo "</script>";	
+								echo "</script>";
+								if(is_dir(‘uploads/product’)){
+									echo "Folder already exists";
+								}else{
+									if (!mkdir($structure, 0777, true)) {
+    									die('Create folder unsuccessfully');
+									}
+								}	
 
 							}else{
 								echo "<script>";

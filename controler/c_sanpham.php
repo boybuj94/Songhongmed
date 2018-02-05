@@ -66,9 +66,10 @@
 				$sql2 = "SELECT * FROM sanpham WHERE ngonngu='0'";
 				$sanpham2 = mysqli_query($con,$sql2);
 				$num = mysqli_num_rows($sanpham2);
-				$sql = "SELECT * FROM sanpham WHERE ngonngu='0' AND iddm != 100 order by idsp desc limit $start,5";
+				$sql = "SELECT * FROM sanpham WHERE ngonngu='0' AND idloai != 100 order by idsp desc limit $start,5";
 				$sanpham = mysqli_query($con,$sql);
 				$sotrang = floor($num/5)+1;
+				// echo "lkashdkjasdjks".$sanpham.$sotrang;
 				include("view/sanpham-vi.php");
 			}else if($v == "vgr"){ // nhomsp-vi.php
 				$id = $_REQUEST['id']; // iddm
@@ -92,13 +93,13 @@
 				include("view/loaisp-vi.php");	
 			}else if($v == "vde"){ // chitietsp
 				$id = $_REQUEST['id']; // idsp
-				$sql = "SELECT * FROM sanpham WHERE ngonngu='1' AND idsp = '{$id}'";
+				$sql = "SELECT * FROM sanpham WHERE ngonngu='0' AND idsp = '{$id}'";
 				$sp = mysqli_query($con,$sql);
 				$rows = mysqli_fetch_array($sp);
 				$sql2 = "SELECT * FROM danhmuc WHERE iddm = (SELECT iddm FROM sanpham WHERE sanpham.ngonngu='0' AND idsp = '{$id}')";
 				$danhmuc2 = mysqli_query($con,$sql2);		
 				$rows2 = mysqli_fetch_array($danhmuc2);
-				$sql3 = "SELECT * FROM sanpham WHERE ngonngu='1' AND iddm = '{$rows2['iddm']}' AND idsp != {$id}";
+				$sql3 = "SELECT * FROM sanpham WHERE ngonngu='0' AND iddm = '{$rows2['iddm']}' AND idsp != {$id}";
 				$loai = mysqli_query($con,$sql3);		
 				
 				

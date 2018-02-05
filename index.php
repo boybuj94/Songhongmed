@@ -10,7 +10,6 @@ session_start();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
 <base href="http://localhost/gitProject/Songhongmed/" />
-<script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
 <link href="public/style/reset.css" rel="stylesheet" type="text/css" />
 <link href="public/style/style.css" rel="stylesheet" type="text/css" />
 <link href="public/style/responsive.css" rel="stylesheet" type="text/css" />

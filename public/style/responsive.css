@@ -170,6 +170,7 @@ ul li {
 	height: 50px;
 	background-color: #0099ff;
 	display: inline-block;
+	z-index: 9999;
 }
 .menu ul{
 	width: 100%;
@@ -678,6 +679,7 @@ margin-bottom: 30px;
 }
 .container ul li{
 	list-style:none;
+	margin-bottom: 10px;
 
 	}
 .banner-sanpham {
@@ -686,8 +688,8 @@ margin-bottom: 30px;
 	float: right;
 }
 .accordion{
-	background:#ccc;
-	border:1px solid #0099ff;		
+/*	background:#ccc;
+	border:1px solid #0099ff;	*/	
 }
 ul .shutter-panel-collapse {
   padding-left: 1em;
@@ -705,7 +707,7 @@ ul li a.a-menu {
   background: #0099ff;
   /*color: #3b5998;*/
   color: #fff;
-  padding: 12px;
+  padding: 6px;
   padding-left:20px;
   transition: background .3s ease;
   border-bottom:3px solid #fff;
@@ -763,6 +765,7 @@ ul.tabs li.current{
 .hotro {
 	width:100%;
 	position:relative;	
+	padding-top: 40px;
 }
 .hotro-check {
 	width:90%;
@@ -1065,12 +1068,74 @@ ul.tabs li.current{
 @media screen and (max-width: 1024px){
 /* CSS Document */
 
-
+.top {
+    position: relative;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+    width: 100%;
+    height: 85px;
+    background-image: url(../img/logo/top2.jpg);
+    /* border-bottom: 5px solid #fff; */
+    z-index: 99;
+}
+.top-company h4 {
+    color: #fff;
+    font-size: 12px;
+}
 .top-tk a img{
 
 	width:25px;
 	margin-top:-30px;
 	}
+.top-timkiem {
+    display: none;
+}
+.top-hotline {
+	margin-right: 40%;
+	}
+.top-menu-timkiem {
+	display: block;
+	width: 100%;
+
+	float: right;
+}
+
+.top-menu-timkiem input[type='text']{
+	padding: 5px;
+	padding-left: 10px;
+	margin-top:	4px;
+	height:20px;
+	width:60%;
+	margin-right: 15px;
+	border-radius:15px;
+	border:1px solid #0099ff;
+	padding-right:1%;
+	z-index:99999;
+	float:right;
+}
+
+.top-menu-timkiem input[type='submit']{
+	/*width:28px;
+	height:28px;
+	margin-top:	3px;
+	border-radius:30px;
+	margin-left: 230px;
+	float:right;
+	outline: none;
+	border:0px;
+	background-image:url(../img/icon-check.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+	position:absolute;
+	display: none;
+	z-index: 9999;*/
+	display: none;
+	}
+/*.top-menu-timkiem :hover input[type='submit']{
+	display: block;
+}*/
 .icon-home {
 	float: none;
 	padding: 13px;
@@ -1266,9 +1331,7 @@ ul.tabs li.current{
 	width: 70%;
 	display: inline-block;
 }
-.top-timkiem{
-	display: none;
-}
+
 .top-menu-timkiem {
 	display: block;
 	width: 100%;
@@ -1373,7 +1436,8 @@ ul.tabs li.current{
 }
 
 .container ul li ul{
-	display:none;	
+	display:none;
+
 }
 
 .content-right {
@@ -1499,6 +1563,9 @@ margin-right: 5%;
 	margin-left: 0px;
 
 }	
+.top-hotline { 
+	margin-right: 35%;
+	}
 	/* -------------Slide trang web--------------------*/
 
 
@@ -1682,7 +1749,6 @@ ul li a.a-menu {
 /*Iphone(480 x 640)*/
 @media screen and (max-width: 375px){
 .top-hotline {
-	margin-top: 10px;
 	height: 10px;
 }
 .top {
@@ -1694,7 +1760,6 @@ ul li a.a-menu {
 	margin-top: 0px;
 }
 .top-hotline {
-	margin-right: 10px;
 	margin-top: 0px;
 }
 .tintuc iframe {
@@ -1736,7 +1801,7 @@ ul li a.a-menu {
 
 }
 .top-hotline {
-    margin-right: 30px;
+	margin-right: 40%;
     margin-top: 0px;
 }
 .top-tk input[type='text'] {

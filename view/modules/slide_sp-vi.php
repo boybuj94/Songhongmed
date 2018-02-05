@@ -1,5 +1,5 @@
 
-<div class="tintuc">
+<div class="tintuc" style="font-family: unset;">
     <?PHP
         $sql = "SELECT * FROM tintuc WHERE ngonngu = '0' AND tags = '3' order by idtin DESC LIMIT 1";
         $gioithieu = mysqli_query($con,$sql);
@@ -9,7 +9,7 @@
 
         <h4><?php echo $row['tieude'];?></h4>
         <h5><?php echo $row['tomtat'];?></h5>
-        <div class="tintuc-noidung"><?php echo html_entity_decode($row['noidung']);?></div>
+        <div class="tintuc-noidung"><?php echo $row['noidung'];?></div>
         <img style = "margin-left: 10%;" src="admin-vm2017/<?php echo $row['img'];?>" width="70%"  title="<?php echo $row['img'];?>"/>
         
 </div>

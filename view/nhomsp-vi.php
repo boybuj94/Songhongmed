@@ -36,7 +36,7 @@
                 </div>
     <?php
         }else {
-?>
+    ?>
 
 
 <div class="list-nhom">

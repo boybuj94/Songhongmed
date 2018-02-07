@@ -289,7 +289,7 @@ ul li {
 }
 .content-sanpham-title {
 	width:60%;
-	color: #0099ff;
+	color: red;
 	float: left;
 	padding-left: 20px;
 	padding-bottom: 5px;
@@ -1784,6 +1784,9 @@ ul li a.a-menu {
 	font-size: 12px;
 	padding: 5px;
 	}
+}
+.container ul li{
+	margin-bottom: 0px;
 }
 @media screen and (max-width: 320px){
 .top {

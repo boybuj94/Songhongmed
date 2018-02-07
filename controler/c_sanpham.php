@@ -73,10 +73,10 @@
 				include("view/sanpham-vi.php");
 			}else if($v == "vgr"){ // nhomsp-vi.php
 				$id = $_REQUEST['id']; // iddm
-				$sql2 = "SELECT * FROM sanpham WHERE iddm = '{$id}'";
-
-				$sql = "SELECT * FROM danhmuc WHERE iddm = '{$id}'";
+				$sql2 = "SELECT * FROM sanpham WHERE idloai = '{$id}'";
 				$sanpham = mysqli_query($con,$sql2);
+				
+				$sql = "SELECT * FROM danhmuc WHERE iddm = '{$id}'";	
 				$danhmuc = mysqli_query($con,$sql);
 				$rows2 = mysqli_fetch_array($danhmuc);
 				include("view/nhomsp-vi.php");

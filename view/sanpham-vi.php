@@ -11,6 +11,7 @@
 <div class="list-nhom">
 	<div class="content-sanpham">
     <?php
+    
     	while($rows = mysqli_fetch_array($sanpham)){
 	?>
 		<div class="content-sanpham-noibat"> 	

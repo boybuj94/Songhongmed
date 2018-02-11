@@ -1,6 +1,12 @@
+
 <!-- line -->
-<div class="title-h2" style="margin:auto;">
-	<a href="index.php?manage=Product&amp;v=vpr&amp;l=en" title="Product company" style="color:#333; text-align:center; text-shadow: 0 0 2px #000;"><h2>Thiết bị</h2>
+<style type="text/css">
+	.content-left {
+		display: none;
+	}
+</style>
+<div class="title-h3" style="margin:auto;">
+	<a href="" title="Product company" style="color:#333; text-align:center; text-shadow: 0 0 2px #000;"><h3>NỘI THẤT Y TẾ</h3>
     </a>
 </div>
 <div class="content-line">
@@ -10,38 +16,45 @@
 <div class="list-nhom">
 	<div class="content-sanpham">
     <?php
-    	while($rows = mysqli_fetch_array($danhmuc2)){
+    	while($rows = mysqli_fetch_array($sanpham)){
 	?>
-		<div class="content-sanpham-noibat">
-        	<a href="index.php?manage=Product&v=vsp&id=<?php echo $id?>" title="Xem chi tiết sản phẩm">
+		<div class="content-sanpham-noibat"> 	
 			<div class="content-sanpham-img">
             	<img src ="admin-vm2017/public/img/anh/<?php echo $rows['img'];?>" width="100%"/>
             </div>
-            <div class="content-sanpham-title"><h4><?php echo ucfirst(mb_strtoupper($rows['tensp'],'UTF-8')).'&nbsp;'.$rows['masp']?></h4></div>
-            <div class="content-sanpham-info"><p style="font-size: 14px;padding-left: 20px;line-height:1.5;"><?php echo strip_tags(str_replace(strstr($rows['thongtin'],'readmore'),' ',$rows['thongtin'])).'...'; //strip_tags(strstr ?>
-                </p></div>
+            <div class="content-sanpham-title">
+            	<h4><a href="index.php?manage=Product&v=vde&id=<?php echo $rows['idsp']?>"><?php echo ucfirst(mb_strtoupper($rows['tensp'],'UTF-8')).'&nbsp;'.$rows['masp']?></a></h4>
+            </div>
+            <div class="content-sanpham-info">
+            	<h4><?php echo $rows['masp'];?></h4>
+                <h5 style="padding-bottom: 5px;">Xuất xứ: <?php echo $rows['hangsp'];?></h5>
+            	<p style="font-size: 14px;line-height:1.5;">
+            		<?php 
+            			echo $rows['baiviet'].'</br>';
+            			echo $rows['thongtin'];
+            		?>
+                </p>
+            </div>
             
-		</div>
-    </a>
-    
+		</div>   
 	<?php }
 	echo "<div class='phantrang'>";
                         	if($_GET['page']>1){
 								$page =$_GET['page']-1;
 								  
-								echo "<a href='/duan/vietmy/?manage=Product&v=vpr&page={$page}'>Back </a>";
+								echo "<a href='products/san-pham/{$page}'>Back </a>";
 						  
 							  }
 							  for ( $j = 1; $j <= $sotrang; $j ++ ){
 								  if($j == $_GET['page']){
 									  echo $j;
 									  }else{
-										  echo "<a href='/duan/vietmy/?manage=Product&v=vpr&page={$j}'> {$j} </a>";	
+										  echo "<a href='products/san-pham/{$j}'> {$j} </a>";	
 									  }
 									  }
 									  if($_GET['page']<$sotrang){
 										$page =$_GET['page']+1;	
-									  echo "<a href='/duan/vietmy/?manage=Product&v=vpr&page={$page}'> Next</a>";;
+									  echo "<a href='products/san-pham/{$page}'> Next</a>";;
 									  }
                         echo "</div>";
 	?>

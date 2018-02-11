@@ -46,7 +46,8 @@
                      	
                         <a href="index.php?ql=sp&ac=v">
                         	<div class="menu-icon" style="background-image:url(public/img/icon/icon-sanpham.png)"></div>
-                            <p>Sản phẩm</p></a></li>
+                            <p>Sản phẩm</p></a>
+                    </li>
                      <li>
                      	
                         <a href="index.php?ql=tt&ac=v">

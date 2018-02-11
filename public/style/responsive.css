@@ -294,7 +294,10 @@ ul li {
 	padding-left: 20px;
 	padding-bottom: 5px;
 }
-
+.content-sanpham-title a{
+	color: red;
+	text-decoration: none;
+}
 .content-sanpham-img {
 	width:280px;
 	height: auto;

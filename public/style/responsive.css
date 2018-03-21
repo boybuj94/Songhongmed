@@ -57,7 +57,7 @@ ul li {
 .top-company h4{
 
 	color: #fff;
-	font-size: 16px;
+	font-size: 15px;
 
 }
 .top-company p{
@@ -1676,6 +1676,9 @@ ul li a.a-menu {
 	margin: auto;
 	padding-top: 10px;
 	font-size: 14px;
+}
+.container ul li {
+	     margin-bottom: 0px; 
 }
 		/* ----------------- san phẩm --------------*/
 .list-loai ul li a {

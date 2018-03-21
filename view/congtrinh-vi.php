@@ -4,7 +4,11 @@
 	
 	<div class="tintuc">
 		<div class="duongdan">
+<<<<<<< HEAD
 			<span><a href="/">Trang chủ</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="dich-vu.html">Công trình y tế</a></span>
+=======
+			<span><a href="/">Trang chủ</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="dich-vu.html">Dịch vụ</a></span>
+>>>>>>> 200e602bc3a62f708f87266fe7e9e4247a93be89
 		</div>
 		
 		<?php

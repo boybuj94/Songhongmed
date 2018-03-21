@@ -232,7 +232,9 @@
                 if($ql == 'menu'){
                     include('controler/c_qlmenu.php');	
                 }else if($ql == 'sp'){
-                    include('controler/c_sanpham.php');	
+                    include('controler/c_sanpham.php');
+                }else if($ql == 'nt'){
+                    include('controler/c_sanpham_nt.php');	
                 }else if($ql == 'tt'){
                     include('controler/c_tintuc.php');	
                 }else if($ql == 'sl'){
@@ -258,7 +260,9 @@
 				else if($ql == 'bl'){
                     include('controler/c_binhluan.php');	
                 }else if($ql == 'nsp'){
-                    include('controler/c_danhmuc.php');	
+                    include('controler/c_danhmuc.php');
+                }else if($ql == 'nnt'){
+                    include('controler/c_noithat.php'); 	
                 }else if($ql == 'dl'){
                     include('controler/c_loaisp.php');	
                 }

@@ -36,8 +36,20 @@
 						include("controler/c_sanpham.php");	
 					echo "</div>";
 					
-				echo "</div>";}
-					
+				    echo "</div>";
+                    }else if($manage=="Product2"){
+                        echo "<div class='banner-img'><img src='public/img/anh web/sanpham.jpg' width='100%' />
+                        </div>";
+                    include("controler/c_menu.php");
+                    echo "<div class='content-left'>";
+                        include("controler/c_menu-left.php");
+                    echo "</div>";
+                    echo "<div class='content-right'>";
+                        include("controler/c_sanpham.php"); 
+                    echo "</div>";
+                    
+                    echo "</div>";
+					}
 		}else if(isset($_REQUEST['seach'])){
 			echo "
             <div class='banner-img'><img src='public/img/anh web/sanpham.jpg' width='100%' />

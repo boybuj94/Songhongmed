@@ -39,14 +39,19 @@
 					  				<li><a href="index.php?ql=nsp&ac=v">&#8226;	Nhóm SP</a></li>		      
 									
                                 </ul>
-                    		<li>   -->  
+                    		<li>   -->
+                            <li><a href="index.php?ql=nnt&ac=v" >&rsaquo; Menu NT</a></li>  
                         </ul>
                      </li>
                      <li>
                      	
-                        <a href="index.php?ql=sp&ac=v">
+                        <a href="#" class="panel-heading">
                         	<div class="menu-icon" style="background-image:url(public/img/icon/icon-sanpham.png)"></div>
                             <p>Sản phẩm</p></a>
+                            <ul class="shutter-panel-collapse" <?php if(isset($_REQUEST['ql'])){$ql = $_REQUEST['ql'];if ($ql == 'sp' || $ql == 'nt'){echo "style='display: block'";}}?>>
+                                <li><a href="index.php?ql=sp&ac=v">&rsaquo; Sản Phẩm</a></li>
+                                <li><a href="index.php?ql=nt&ac=v">&rsaquo; Nội thất y tế</a></li>
+                            </ul>
                     </li>
                      <li>
                      	

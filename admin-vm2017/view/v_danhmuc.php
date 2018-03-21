@@ -28,7 +28,7 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
 					<div class='img-hover'><img src = 'public/img/anh/{$rows['img']}' width = '300px' /> adsadas</div>
 				</td>
                 <td>{$rows['tendm']}</td>
-                 <td>{$rows['info']}</td>
+                 <td>{$rows['link_title']}</td>
                 <td>";
 					if($rows['ngonngu'] == '0'){
 						echo "Tiếng việt - vi";
@@ -88,10 +88,10 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
 						<td  width = '120px'><label for='ten'>Tên menu: </label></td>
 						<td><input class = 'text' id='ten' type='text' name = 'ten' placeholder='&nbsp;&nbsp;Tên menu !' /></td>
 					</tr>
-					<tr>
+					<!--<tr>
 						<td  width = '120px'>Info: </td>
 						<td><input type='text' name = 'info' placeholder='&nbsp;&nbsp;Info !' /></td>
-					</tr>
+					</tr>-->
 					<tr>
 						<td>Ngôn ngữ: </td>
 						<td>
@@ -178,10 +178,10 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
 						<td><input class = 'text' id='' type='text' name = 'ten' value = '<?php echo $rows['tendm']; ?>' /></td>
 					</tr>
 
-					<tr>
+					<!-- <tr>
 						<td  width = '120px'>Info: </td>
 						<td><input name = 'info' type='text' value = '<?php echo $rows['info']; ?>' /></td>
-					</tr>
+					</tr> -->
 					
 					<tr>
 						<td>Ngôn ngữ: </td>

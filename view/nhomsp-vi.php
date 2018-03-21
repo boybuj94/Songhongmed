@@ -1,13 +1,13 @@
 <!-- line -->
-<div class="title-h2" style="margin:auto;">
+<!-- <div class="title-h2" style="margin:auto;">
     <a href="index.php?manage=Product&amp;v=vpr&amp;l=en" title="Product company" style="color:#333; text-align:center; text-shadow: 0 0 2px #000;"><h2><?php echo ucfirst(mb_strtoupper($rows2['tendm'],'UTF-8'));?></h2>
     </a>
 </div>
 <div class="content-line">
     <div class="content-icon"><img src="public/img/icon-arrow1.png"></div>
-</div>
+</div> -->
 <!-- list sp -->
-<?php
+<!-- <?php
     if (isset($_REQUEST['id'])){
         $iddm = $_REQUEST['id'];
         if($iddm ==100){ // trường hợp danh mục là sp khác ?>
@@ -69,4 +69,4 @@
     
         <div class="clear-fix"></div> <!-- CHO CONTENT-SANPHAM KHÔNG TRÔI RA KHỎI CLASS CONTENT -->
     </div>
-</div>
+</div> -->

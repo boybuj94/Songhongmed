@@ -1,60 +1,285 @@
-
-<!-- line -->
-<div class="title-h3" style="margin:auto;">
-	<a href="products/san-pham.html" title="Product company" style="color:#333; text-align:center; text-shadow: 0 0 2px #000;"><h3>SẢN PHẨM CÔNG TY</h3>
-    </a>
+<div class='duongdan'>
+	<p><a href='index.php'>Trang chủ &nbsp;&nbsp;</a>&rsaquo;&nbsp;&nbsp;Other&nbsp;&nbsp;&rsaquo;<a href='index.php?ql=nnt&ac=v'>&nbsp;&nbsp;Menu nội thất y tế</a></p>
 </div>
-<div class="content-line">
-	<div class="content-icon"><img src="public/img/icon-arrow1.png"></div>
-</div>
+<div class='admin'>
+<?php
+if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
+	if(isset($_REQUEST['ac'])){
+		$ac =$_REQUEST['ac'];
+		if($ac == 'v'){
+			echo "
+    	<table width='100%'  cellpadding='0' cellspacing='0' border='1'>
+    		<caption><p>MENU NỘI THẤT Y TẾ</p></caption>
+            <tr style='text-align:center; background:#0099ff;height:45px;color:#fff; font-weight:bold; '>
+            	<td width='40px'>STT</td>
+				<td width='100px'></td>
+                <td>Tên menu</td>
+                <td>Info</td>
+                <td width='150px'>Ngôn ngữ</td>
+                <td colspan='2'>Tùy chọn</td>
+                
+            </tr>";
+			$num = mysqli_num_rows($noithat);
+			$i =1;
+			while($rows = mysqli_fetch_array($noithat)){
+            echo "<tr>
+				<td  style='text-align:center;'>{$i}</td>
+            	<td><div class='admin-img' style='background-image:url(public/img/anh/{$rows['img']}); border-radius:1px; width:80px'></div>
+					<div class='img-hover'><img src = 'public/img/anh/{$rows['img']}' width = '300px' /> adsadas</div>
+				</td>
+                <td>{$rows['tennt']}</td>
+                 <td>{$rows['link_title']}</td>
+                <td>";
+					if($rows['ngonngu'] == '0'){
+						echo "Tiếng việt - vi";
+					}else if($rows['ngonngu'] == '1'){
+						echo "English - en";
+					}
+					echo "
+				</td>
+                <td width='40px'>
+					<a href='index.php?ql=nnt&ac=sua&id={$rows['idnt']}' title='Sửa thông tin'>
+						<div class='admin-icon' style='background-image:url(public/img/icon/icon-sua.png);'> </div>
+					</a>
+				</td>
+                <td width='40px'>
+					<a onClick='javascript: return CheckSure();' href='index.php?ql=nnt&ac=xoa&id={$rows['idnt']}' title='Xóa admin'>
+					<script language='javascript'> 
+						function CheckSure(){ 
+						if( window.confirm('Bạn có chắc chắn xóa bỏ không?')){ 
+						return true; 
+						}else{ 
+						return false 
+						} 
+						} 
+						</script>
+						<div class='admin-icon' style='background-image:url(public/img/icon/thungrac.png);'> </div>
+					</a>
+				</td>
+            </tr>";
+			$i++;
+			}
+			
+            echo "<tr height='50px;'>
+            	<td colspan='7'>
+                	<div class='admin-them'>
+                    	<div class='admin-add'><a href='index.php?ql=nnt&ac=add' title=''>&nbsp;&nbsp;+ Thêm mới&nbsp;&nbsp;</a></div>
+                        <div class='admin-tt'><p>Hiển thị từ 1 đến {$num} / Tổng {$num}</p></div>
+                        <div class='admin-phantrang'>
+                        	
+                        </div>
+                    </div>
+                </td>
+                
+            </tr>";
+			
+			
+    	echo "</table>";
+			
+							// -----------THÊM menu---------------------
+			
+		}else if ($ac == 'add'){
+			echo "
+			<form method='post' action='model/m_noithat.php' enctype='multipart/form-data' name='dangky'>
+				
+				<table width='380px' border='0'>
+				<caption><p>THÊM MỚI MENU NỘI THẤT Y TẾ</p></caption>
+					<tr>
+						<td  width = '120px'><label for='ten'>Tên menu: </label></td>
+						<td><input class = 'text' id='ten' type='text' name = 'ten' placeholder='&nbsp;&nbsp;Tên menu !' /></td>
+					</tr>
+					<!--<tr>
+						<td  width = '120px'>Info: </td>
+						<td><input type='text' name = 'info' placeholder='&nbsp;&nbsp;Info !' /></td>
+					</tr>-->
+					<tr>
+						<td>Ngôn ngữ: </td>
+						<td>
+							Vi_vn <input type='radio' name = 'nn' value='0' checked ='checked '/>
+							&nbsp;&nbsp;&nbsp;En_en <input type='radio' name = 'nn' value='1'/>
+						</td>
+					</tr>
+					<tr>
+						<td>Ảnh menu: </td>
+						<td><input type='file' name = 'img' /></td>
+					</tr>
+					<tr>
+						<td><label id='botton'></label>
+</td>
+						<td><input id='submit' type='submit' name = 'add' value='Thêm'/></td>
+					</tr>
+				</table>
+			</form>
+			<script>
+				  var inputs = document.forms['dangky'].getElementsByTagName('input');
+					var run_onchange = false;
+					function valid(){
+					 var errors = false;
+					 var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+					 for(var i=0; i<inputs.length; i++){
+					  var value = inputs[i].value;
+					  var id = inputs[i].getAttribute('id');
+					 
+					  // Tạo phần tử span lưu thông tin lỗi
+					  var span = document.createElement('span');
+					  // Nếu span đã tồn tại thì remove
+					  var p = inputs[i].parentNode;
+					  if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
+					 
+					  // Kiểm tra rỗng
+					  if(value == ''){
+					   span.innerHTML ='Bạn chưa nhập thông tin!';
+					  
+					  }
+					 
+					  // Nếu có lỗi thì chèn span vào hồ sơ, chạy onchange, submit return false, highlight border
+					  if(span.innerHTML != ''){
+					   inputs[i].parentNode.appendChild(span);
+					   errors = true;
+					   run_onchange = true;
+					   inputs[i].style.border = '1px solid #c6807b';
+					   inputs[i].style.background = '#fffcf9';
+					  }
+					 }// end for
+					
+					 
+					 return !errors;
+					}// end valid()
+				   
+					// Chạy hàm kiểm tra valid()
+					var register = document.getElementById('submit');
+					register.onclick = function(){
+					 return valid();
+					}
+				   
+					// Kiểm tra lỗi với sự kiện onchange -> gọi lại hàm valid()
+					 for(var i=0; i<inputs.length; i++){
+					  var id = inputs[i].getAttribute('id');
+					  inputs[i].onchange = function(){
+					   if(run_onchange == true){
+						this.style.border = '1px solid #999';
+						this.style.background = '#fff';
+						valid();
+					   }
+					  }
+					 }// end for
+				  </script>
+				";
+				
+				// ----------------- SỬA menu --------------
+				
+		}else if ($ac == 'sua'){
+			
+			?>
+			<form method='post' action='model/m_noithat.php?id=<?php echo $id; ?>' enctype='multipart/form-data' name="update">
+				<table  width='380px'>
+					<tr>
+						<td  width = '120px'><label for='ten'>Tên menu: </label></td>
+						<td><input class = 'text' id='' type='text' name = 'ten' value = '<?php echo $rows['tennt']; ?>' /></td>
+					</tr>
 
-<div class="list-nhom">
-	<div class="content-sanpham">
-    <?php
-    
-    	while($rows = mysqli_fetch_array($sanpham)){
-	?>
-		<div class="content-sanpham-noibat"> 	
-			<div class="content-sanpham-img">
-            	<img src ="admin-vm2017/public/img/anh/<?php echo $rows['img'];?>" width="100%"/>
-            </div>
-            <div class="content-sanpham-title">
-            	<h4><a href="index.php?manage=Product&v=vde&id=<?php echo $rows['idsp']?>"><?php echo ucfirst(mb_strtoupper($rows['tensp'],'UTF-8')).'&nbsp;'.$rows['masp']?></a></h4>
-            </div>
-            <div class="content-sanpham-info">
-            	<h4><?php echo $rows['masp'];?></h4>
-                <h5 style="padding-bottom: 5px;">Xuất xứ: <?php echo $rows['hangsp'];?></h5>
-            	<p style="font-size: 14px;line-height:1.5;">
-            		<?php 
-            			echo $rows['baiviet'].'</br>';
-            			echo $rows['thongtin'];
-            		?>
-                </p>
-            </div>
-            
-		</div>   
-	<?php }
-	echo "<div class='phantrang'>";
-                        	if($_GET['page']>1){
-								$page =$_GET['page']-1;
-								  
-								echo "<a href='products/san-pham/{$page}'>Back </a>";
-						  
-							  }
-							  for ( $j = 1; $j <= $sotrang; $j ++ ){
-								  if($j == $_GET['page']){
-									  echo $j;
-									  }else{
-										  echo "<a href='products/san-pham/{$j}'> {$j} </a>";	
-									  }
-									  }
-									  if($_GET['page']<$sotrang){
-										$page =$_GET['page']+1;	
-									  echo "<a href='products/san-pham/{$page}'> Next</a>";;
-									  }
-                        echo "</div>";
-	?>
-    
-		<div class="clear-fix"></div> <!-- CHO CONTENT-SANPHAM KHÔNG TRÔI RA KHỎI CLASS CONTENT -->
-    </div>
+					<!-- <tr>
+						<td  width = '120px'>Info: </td>
+						<td><input name = 'info' type='text' value = '<?php echo $rows['info']; ?>' /></td>
+					</tr> -->
+					
+					<tr>
+						<td>Ngôn ngữ: </td>
+						<td>
+							vi <input type='radio' name = 'nn' value='0' <?php if($rows['ngonngu'] == '0'){echo "checked ='checked' ";}?>/>
+							&nbsp;&nbsp;&nbsp;en <input type='radio' name = 'nn' value='1'  <?php if($rows['ngonngu'] == '1'){echo "checked ='checked' ";}?>/>
+							
+						</td>
+					</tr>
+					<tr>
+						<td>Ảnh menu: <img src="public/img/anh/<?php echo $rows['img'] ?>" width="40px" /></td>
+						<td><input type='file' name = 'img' src="public/img/anh/<?php echo $rows['img'] ?>"/></td>
+					</tr>
+                    <tr>
+						<td><label id='botton'></label></td>
+						<td>
+                        	
+                            <input  id='submit' type='submit' name = 'sua' value='Sửa'/>
+                            <a onClick='javascript: return CheckSure();' href='index.php?ql=nnt&ac=v' title='Hủy thao tác'>
+                            	<div class = 'admin-button'> <p>Hủy</p></div>
+								<script language='javascript'> 
+									function CheckSure(){ 
+									if( window.confirm('Bạn có chắc chắn hủy không?')){ 
+									return true; 
+									}else{ 
+									return false 
+									} 
+									} 
+									</script>
+                        	</a> 
+                        </td>
+					</tr>
+				</table>
+			</form>
+            <script>
+				  var inputs = document.forms['update'].getElementsByTagName('input');
+					var run_onchange = false;
+					function valid(){
+					 var errors = false;
+					 
+					 for(var i=0; i<inputs.length; i++){
+					  var value = inputs[i].value;
+					  var id = inputs[i].getAttribute('id');
+					 
+					  // Tạo phần tử span lưu thông tin lỗi
+					  var span = document.createElement('span');
+					  // Nếu span đã tồn tại thì remove
+					  var p = inputs[i].parentNode;
+					  if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
+					  // Kiểm tra các trường hợp khác
+					   if(id == 'ten'){
+						if(value == ''){ span.innerHTML ='Bạn cần nhập lại thông tin';}
+						var email =value;
+					   }
+					   
+					  // Nếu có lỗi thì chèn span vào hồ sơ, chạy onchange, submit return false, highlight border
+					  if(span.innerHTML != ''){
+					   inputs[i].parentNode.appendChild(span);
+					   errors = true;
+					   run_onchange = true;
+					   inputs[i].style.border = '1px solid #c6807b';
+					   inputs[i].style.background = '#fffcf9';
+					  }
+					 }// end for
+					
+					 
+					 return !errors;
+					}// end valid()
+				   
+					// Chạy hàm kiểm tra valid()
+					var register = document.getElementById('submit');
+					register.onclick = function(){
+					 return valid();
+					}
+				   
+					// Kiểm tra lỗi với sự kiện onchange -> gọi lại hàm valid()
+					 for(var i=0; i<inputs.length; i++){
+					  var id = inputs[i].getAttribute('id');
+					  inputs[i].onchange = function(){
+					   if(run_onchange == true){
+						this.style.border = '1px solid #999';
+						this.style.background = '#fff';
+						valid();
+					   }
+					  }
+					 }// end for
+					 
+					 
+					 
+				  </script>
+                  
+<?php
+		}
+	}
+}else {
+	echo $thongbao;	
+}
+?>
+
+
 </div>

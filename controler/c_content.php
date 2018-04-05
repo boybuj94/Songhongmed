@@ -42,10 +42,10 @@
                         </div>";
                     include("controler/c_menu.php");
                     echo "<div class='content-left'>";
-                        include("controler/c_menu-left.php");
+                        include("controler/c_menu-left2.php");
                     echo "</div>";
                     echo "<div class='content-right'>";
-                        include("controler/c_sanpham.php"); 
+                        include("controler/c_sanpham_nt.php"); 
                     echo "</div>";
                     
                     echo "</div>";

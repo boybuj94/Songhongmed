@@ -19,6 +19,7 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
                 <td colspan='2'>Tùy chọn</td>
                 
             </tr>";
+
 			$num = mysqli_num_rows($danhmuc);
 			$i =1;
 			while($rows = mysqli_fetch_array($danhmuc)){
@@ -43,15 +44,33 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
 					</a>
 				</td>
                 <td width='40px'>
-					<a onClick='javascript: return CheckSure();' href='index.php?ql=nsp&ac=xoa&id={$rows['iddm']}' title='Xóa admin'>
+					<a onClick='javascript: return CheckSure();' href='index.php?ql=nsp&ac=xoa&id={$rows['iddm']}' title='Xóa admin'>";
+						$sql1 = "SELECT * FROM sanpham WHERE iddm ='{$rows['iddm']}'";
+						$num2 = mysqli_num_rows(mysqli_query($con,$sql1));
+						if($num2>0){
+						echo "
 					<script language='javascript'> 
-						function CheckSure(){ 
-						if( window.confirm('Bạn có chắc chắn xóa bỏ không?')){ 
+						function CheckSure(){
+						
+						if( window.confirm('Co san pham chua trong danh muc nay! Ban chac chan muon xoa?')){ 
 						return true; 
 						}else{ 
 						return false 
-						} 
-						} 
+						}
+					}
+						";
+						}else{
+							echo"<script language='javascript'> 
+						function CheckSure(){
+							if( window.confirm('Bạn có chắc chắn xóa bỏ không?')){ 
+								return true; 
+							}else{ 
+								return false 
+								}
+							} 
+						";
+						}
+						echo "
 						</script>
 						<div class='admin-icon' style='background-image:url(public/img/icon/thungrac.png);'> </div>
 					</a>

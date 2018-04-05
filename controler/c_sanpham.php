@@ -46,7 +46,7 @@
 				$loai = mysqli_query($con,$sql3);		
 				
 				
-				include("view/chitietsp-en.php");
+				include("view/chitietsp-nt-en.php");
 			}
 		}else if(isset($_REQUEST['seach'])){
 				$noidung = $_REQUEST['text_seach'];
@@ -66,7 +66,6 @@
 				$sql = "SELECT * FROM sanpham WHERE ngonngu='0' AND iddm != 2 AND iddm != 1 order by idsp desc limit $start,5";
 				$sanpham = mysqli_query($con,$sql);
 				$sotrang = floor($num/5)+1;
-				echo "lkashdkjasdjks".$sotrang.$num;
 				include("view/sanpham-vi.php");
 			}else if($v == "vgr"){ // nhomsp-vi.php
 				$id = $_REQUEST['id']; // iddm
@@ -97,7 +96,7 @@
 				$loai = mysqli_query($con,$sql3);		
 				
 				
-				include("view/chitietsp-vi.php");
+				include("view/chitietsp-nt-vi.php");
 			}
 		}if(isset($_REQUEST['seach'])){
 				$noidung = $_REQUEST['text_seach'];

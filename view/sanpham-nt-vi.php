@@ -1,5 +1,5 @@
 
-<!-- all san pham -->
+<!-- line -->
 <div class="title-h3" style="margin:auto;">
 	<a href="products/san-pham.html" title="Product company" style="color:#333; text-align:center; text-shadow: 0 0 2px #000;"><h3>SẢN PHẨM CÔNG TY</h3>
     </a>
@@ -12,14 +12,15 @@
 	<div class="content-sanpham">
     <?php
     
-    	while($rows = mysqli_fetch_array($sanpham)){
+    	while($rows = mysqli_fetch_array($sanpham_nt)){
 	?>
 		<div class="content-sanpham-noibat"> 	
 			<div class="content-sanpham-img">
-            	<img src ="anhngocmed.com/admin-vm2017/public/img/anh/<?php echo $rows['img'];?>" width="100%"/>
+            	<img src ="admin-vm2017/public/img/anh/<?php echo $rows['img'];?>" width="100%"/>
             </div>
             <div class="content-sanpham-title">
-            	<h4><a href="index.php?manage=Product&v=vde&id=<?php echo $rows['idsp']?>"><?php echo ucfirst(mb_strtoupper($rows['tensp'],'UTF-8')).'&nbsp;'.$rows['masp']?></a></h4>
+            	<h4><a href="index.php?manage=Product2&v=vde&id=<?php echo $rows['idsp']?>"><?php echo ucfirst(mb_strtoupper($rows['tensp'],'UTF-8')).'&nbsp;'.$rows['masp']?></a></h4>
+            </a>
             </div>
             <div class="content-sanpham-info">
             	<h4><?php echo $rows['masp'];?></h4>

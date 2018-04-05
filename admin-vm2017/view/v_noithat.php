@@ -43,16 +43,34 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
 					</a>
 				</td>
                 <td width='40px'>
-					<a onClick='javascript: return CheckSure();' href='index.php?ql=nnt&ac=xoa&id={$rows['idnt']}' title='Xóa admin'>
+					<a onClick='javascript: return CheckSure();' href='index.php?ql=nnt&ac=xoa&id={$rows['idnt']}' title='Xóa danh muc'>
+					";
+						$sql1 = "SELECT * FROM sanpham_nt WHERE idnt ='{$rows['idnt']}'";
+						$num2 = mysqli_num_rows(mysqli_query($con,$sql1));
+						if($num2>0){
+						echo "
 					<script language='javascript'> 
-						function CheckSure(){ 
-						if( window.confirm('Bạn có chắc chắn xóa bỏ không?')){ 
+						function CheckSure(){
+						
+						if( window.confirm('Co san pham chua trong danh muc nay! Ban chac chan muon xoa?')){ 
 						return true; 
 						}else{ 
 						return false 
-						} 
-						} 
-						</script>
+						}
+					}
+						</script>";
+						}else if($num2 ==0){
+							echo"<script language='javascript'> 
+						function CheckSure(){
+							if( window.confirm('Bạn có chắc chắn xóa bỏ không?')){ 
+								return true; 
+							}else{ 
+								return false 
+								}
+							} 
+						</script>";
+						}
+						echo "
 						<div class='admin-icon' style='background-image:url(public/img/icon/thungrac.png);'> </div>
 					</a>
 				</td>

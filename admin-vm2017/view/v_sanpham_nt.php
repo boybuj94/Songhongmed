@@ -69,7 +69,12 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
             	<td style='font-size:11px'><a href = 'index.php?ql=nt&ac=ct&id=<?php echo $rows['idsp']?>'><?php echo $rows['tensp']?></a></td>
                 <td style='font-size:11px'><?php echo $rows['masp']?></td>
                 <td style='font-size:11px'><?php echo $rows['hangsp']?></td>   
-				<td style='font-size:11px'><?php echo $rows['tennt']?></td>          
+				<td style='font-size:11px'><?php
+					$sql4 = "SELECT tennt FROM noithat,sanpham_nt WHERE sanpham_nt.idnt=noithat.idnt AND idsp = {$rows['idsp']}" ;
+					$danhmuc4 =  mysqli_query($con,$sql4);	
+					$rows_dm = mysqli_fetch_array($danhmuc4);
+					echo $rows_dm['tennt'];
+				?></td>          
 				<td>
 							<?php if($rows['noibat'] == '0'){
 								echo "Mặc định";
@@ -336,7 +341,10 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
                             <?php
                               $noithat = 'SELECT * FROM noithat';
                               $ketqua = mysqli_query($con,$noithat);
-                                  echo "<option value='{$rows['idnt']}' selected='selected'>{$rows['tennt']}</option>";
+                              $sql4 = "SELECT tennt FROM noithat,sanpham_nt WHERE sanpham_nt.idnt=noithat.idnt AND idsp = {$rows['idsp']}" ;
+							$danhmuc4 =  mysqli_query($con,$sql4);	
+							$rows_dm = mysqli_fetch_array($danhmuc4);
+                                  echo "<option value='{$rows_dm['tennt']}' selected='selected'>{$rows_dm['tennt']}</option>";
 								while($dong2 = mysqli_fetch_array($ketqua)){
 									echo "<option value='{$dong2['idnt']}'>{$dong2['tennt']}</option> ";
 				 				} ?>

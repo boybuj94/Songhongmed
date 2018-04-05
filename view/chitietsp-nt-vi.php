@@ -16,7 +16,7 @@
                     <img src ="admin-vm2017/public/img/anh/<?php echo $rows['img'];?>" width="100%"/>
                   </div>
                   <div class="content-sanpham-title">
-                    <h4><?php echo ucfirst(mb_strtoupper($rows['tensp'],'UTF-8')).'&nbsp;'.$rows['masp']?></h4>
+                    <h4><a href="index.php?manage=Product&v=vde&id=<?php echo $rows['idsp']?>"><?php echo ucfirst(mb_strtoupper($rows['tensp'],'UTF-8')).'&nbsp;'.$rows['masp']?></h4>
                   </div>
                   <div class="content-sanpham-info">
                     <h4><?php echo $rows['masp'];?></h4>

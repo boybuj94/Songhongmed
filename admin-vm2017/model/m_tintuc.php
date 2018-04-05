@@ -31,7 +31,7 @@
 
 			if($_FILES['img']['name'] != NULL){ // Đã chọn img
 				$path = 'public/img/anh/';
-				$img = $date.$_FILES['img']['name'];
+				$img = $date.$str;
 				$name = str_replace(' ','-',$img);
 				$name2=$path.$name;
 				// Tiến hành code upload img

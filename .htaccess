@@ -17,10 +17,10 @@ RewriteRule "products/san-pham.html" "index.php?manage=Product&v=vpr"
 RewriteRule "^products/san-pham/(.*)$" "index.php?manage=Product&v=vpr&page=$1
 RewriteRule "^products/nhom-san-pham/(.*)-(.*).html$" "index.php?manage=Product&v=vgr&nhom=$1&id=$2"
 
+RewriteRule "products/noi-that.html" "index.php?manage=Product2&v=vpr"
+RewriteRule "^products/nhom-noi-that/(.*)-(.*).html$" "index.php?manage=Product2&v=vgr&nhom=$1&id=$2"
+
 RewriteRule "^dich-vu/chi-tiet-dich-vu/(.*)-(.*).html$" "index.php?manage=News&v=vde&tieude=$1&id=$2"
-
-
-
 
 RewriteRule "l/en" "index.php?l=en"
 

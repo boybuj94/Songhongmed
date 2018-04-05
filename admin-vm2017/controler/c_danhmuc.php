@@ -5,6 +5,7 @@
 		if ($ac == 'v'){			
 			$sql = "SELECT * FROM danhmuc";
 			$danhmuc = mysqli_query($con,$sql);
+			
 			include('view/v_danhmuc.php');
 		}else if($ac == 'add'){
 

@@ -26,7 +26,7 @@
 			  $str = str_replace('"', "",$str);
 			  $structure = "./public/img/".$str;
 			if($_FILES['img']['name'] != NULL){ // Đã chọn img
-				$img = $date.$_FILES['img']['name'];
+				$img = $date.$str;
 				$name = str_replace(' ','-',$img);
 				// Tiến hành code upload img
 				if($_FILES['img']['type'] == "image/jpeg"

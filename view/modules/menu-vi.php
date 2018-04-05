@@ -11,13 +11,10 @@
   	<!-- <li><a href="index.php?manage=Introduce" title="Giới thiệu">Giới thiệu</a></li> -->
     <li><a href="products/san-pham.html" title="Thiết bị y tế">Thiết bị y tế</a></li>
     <!-- <li><a href="download.html" title="Download phần mềm">Download</a></li> -->
-<<<<<<< HEAD
-    <li><a href="index.php?manage=Product2&v=vsp" title="Nội thất y tế">Nội thất y tế</a></li>
+    <li><a href="products/noi-that.html" title="Nội thất y tế">Nội thất y tế</a></li>
     <li><a href="dich-vu.html" title="Công trình y tế">Công trình y tế</a></li>
-=======
     <li><a href="products/san-pham.html" title="Nội thất y tế">Nội thất y tế</a></li>
     <li><a href="dich-vu.html" title="Công trình">Công trình y tế</a></li>
->>>>>>> 200e602bc3a62f708f87266fe7e9e4247a93be89
     <li><a href="dich-vu.html" title="Dịch vụ">Dịch vụ</a></li>
     <li><a href="contact.html" title="Liên hệ">Liên hệ</a></li>
   </ul>

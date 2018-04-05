@@ -1,4 +1,5 @@
 <?php
+
 	// phân trang
 	if(!isset($_GET['page'])){
 		$_GET['page'] = 1 ;	
@@ -9,11 +10,11 @@
 		
 		// hiển thị sản phẩm
 		if ($ac == 'v'){	
-			$sql2 = "SELECT idsp FROM danhmuc,sanpham WHERE danhmuc.iddm=sanpham.iddm";
+			$sql2 = "SELECT idsp FROM sanpham";
 			$sanpham2 = mysqli_query($con,$sql2);	
 			$num = mysqli_num_rows($sanpham2);	
 			
-			$sql = "SELECT tensp,masp,danhmuc.iddm,tendm,sanpham.ngonngu,idsp,hangsp,thongtin,baiviet,sanpham.img,noibat FROM danhmuc,sanpham WHERE danhmuc.iddm=sanpham.iddm order by idsp desc limit $start,10";
+			$sql = "SELECT * FROM sanpham order by idsp desc limit $start,10";
 			$sanpham = mysqli_query($con,$sql);
 			$sotrang = floor($num/10)+1;
 			include('view/v_sanpham.php');
@@ -25,11 +26,10 @@
 			include('view/v_sanpham.php');
 		}else if($ac == 'sua' || $ac == 'ct' ){
 			$id = $_REQUEST['id'];
-			$sql = "SELECT tensp,masp,danhmuc.iddm,tendm,sanpham.ngonngu,idsp,hangsp,thongtin,baiviet,sanpham.img,noibat FROM danhmuc,sanpham WHERE danhmuc.iddm=sanpham.iddm AND idsp='{$id}'";
+			$sql = "SELECT * FROM sanpham WHERE idsp='{$id}'";
 			$sanpham = mysqli_query($con,$sql);
 			$rows = mysqli_fetch_array($sanpham);
 			include('view/v_sanpham.php');
-			
 		}else if($ac == 'xoa'){
 			include('model/m_sanpham.php');
 		}

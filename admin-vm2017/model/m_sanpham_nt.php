@@ -31,7 +31,7 @@
 			  
 		$date = date('YmdHis-');// lấy thời gian thực 
 			if($_FILES['img']['name'] != NULL){ // Đã chọn img
-				$img = $date.$_FILES['img']['name'];
+				$img = $date.$str;
 				$name = str_replace(' ','-',$img);
 				// Tiến hành code upload img
 				

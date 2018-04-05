@@ -66,7 +66,12 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
             	<td style='font-size:11px'><a href = 'index.php?ql=sp&ac=ct&id=<?php echo $rows['idsp']?>'><?php echo $rows['tensp']?></a></td>
                 <td style='font-size:11px'><?php echo $rows['masp']?></td>
                 <td style='font-size:11px'><?php echo $rows['hangsp']?></td>   
-				<td style='font-size:11px'><?php echo $rows['tendm']?></td>          
+				<td style='font-size:11px'><?php
+				 	$sql4 = "SELECT tendm FROM danhmuc,sanpham WHERE sanpham.iddm=danhmuc.iddm AND idsp = {$rows['idsp']}" ;
+				 	$danhmuc4 =  mysqli_query($con,$sql4);	
+					$rows_dm = mysqli_fetch_array($danhmuc4);
+					echo $rows_dm['tendm']
+					?></td>          
 				<td>
 							<?php if($rows['noibat'] == '0'){
 								echo "Mặc định";
@@ -333,7 +338,11 @@ if($_SESSION['quyen'] == '0' || $_SESSION['quyen'] == '2'){
                             <?php
                               $danhmuc = 'SELECT * FROM danhmuc';
                               $ketqua = mysqli_query($con,$danhmuc);
-                                  echo "<option value='{$rows['iddm']}' selected='selected'>{$rows['tendm']}</option>";
+
+							 	$sql4 = "SELECT tendm FROM danhmuc,sanpham WHERE sanpham.iddm=danhmuc.iddm AND idsp = {$rows['idsp']}" ;
+							 	$danhmuc4 =  mysqli_query($con,$sql4);	
+								$rows_dm = mysqli_fetch_array($danhmuc4);
+                                  echo "<option value='{$rows['iddm']}' selected='selected'>{$rows_dm['tendm']}</option>";
 								while($dong2 = mysqli_fetch_array($ketqua)){
 									echo "<option value='{$dong2['iddm']}'>{$dong2['tendm']}</option> ";
 				 				} ?>
